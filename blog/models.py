@@ -13,9 +13,8 @@ class Blog(models.Model):
     def __str__(self):
        return '{}'.format(self.title)
 
-    @permalink
-    def get_absolute_url(self):
-        return ('view_blog_post', None, { 'slug': self.slug })
+    def url(self):
+        return reverse('view_post', args=[self.slug])
 
 class Category(models.Model):
     title = models.CharField(max_length=100, db_index=True)
@@ -24,6 +23,5 @@ class Category(models.Model):
     def __str__(self):
        return '{}'.format(self.title)
 
-    @permalink
-    def get_absolute_url(self):
-        return ('view_blog_category', None, { 'slug': self.slug })
+    def url(self):
+        return reverse('view_category', args=[self.slug])
