@@ -37,6 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+    'suit',
+
+    #'disqus',
+    #'redactor',
+    #'nocaptcha_recaptcha',
+    #'import_export',
 ]
 
 MIDDLEWARE = [
@@ -127,3 +133,46 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
+
+
+#Key Information
+SITE_ID = 1
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'your_email@gmail.com'
+EMAIL_HOST_PASSWORD = 'password'
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+FILE_UPLOAD_MAX_MEMORY_SIZE = 35000000
+
+DISQUS_API_KEY = 'your_disqus_api_key'
+DISQUS_WEBSITE_SHORTNAME = 'your_disques_website_name'
+
+# No Recaptha SITE_KEY and SECRET KEY
+# https://www.google.com/recaptcha
+NORECAPTCHA_SITE_KEY = "key_key_key_key"
+NORECAPTCHA_SECRET_KEY = "key_key_key_key"
+
+SUIT_CONFIG = {
+    'ADMIN_NAME': 'Python Learning',
+    'SEARCH_URL': '/admin/blog/post/',
+    'MENU': (
+        {'app': 'blog', 'label': 'Blog', 'models': ('post', 'tag', 'page', 'author', 'gallery', 'visitor'),
+            'icon': 'icon-align-left'},
+        '-',
+        {'app': 'auth', 'label': 'Authentication',
+            'icon': 'icon-lock', 'models': ('user', 'group')},
+        {'app': 'sites', 'label': 'Site Config', 'icon': 'icon-leaf'},
+    ),
+    'LIST_PER_PAGE': 15
+}
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = '/path/to/yourenv/blogproject/media'
+
+# Editor Redactor
+import time
+REDACTOR_OPTIONS = {'lang': 'en'}
+REDACTOR_UPLOAD = 'uploads/' + time.strftime("%Y/%m/%d/")
+REDACTOR_AUTH_DECORATOR = 'django.contrib.auth.decorators.login_required'
