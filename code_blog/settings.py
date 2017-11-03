@@ -1,4 +1,4 @@
-import os
+import os, time
 from . import info
 from django.core.exceptions import ImproperlyConfigured
 
@@ -30,6 +30,7 @@ ALLOWED_HOSTS = ['127.0.0.1',"ADDDOMAINNAMEHERE"]
 # Application definition
 
 INSTALLED_APPS = [
+    'suit',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -37,12 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
-    'suit',
+
 
     #'disqus',
-    #'redactor',
-    #'nocaptcha_recaptcha',
-    #'import_export',
+    'redactor',
+    'nocaptcha_recaptcha',
+    'import_export',
 ]
 
 MIDDLEWARE = [
@@ -115,13 +116,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'America/New_York'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
 
@@ -144,8 +141,8 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 FILE_UPLOAD_MAX_MEMORY_SIZE = 35000000
 
-DISQUS_API_KEY = 'your_disqus_api_key'
-DISQUS_WEBSITE_SHORTNAME = 'your_disques_website_name'
+DISQUS_API_KEY = 'M9MkE6N6FKTP2PJu6hlhGLSpqRZ4cTxSs9pWkh66wLwD8msdUGTnQspamZKdSIuT'
+#DISQUS_WEBSITE_SHORTNAME = 'philharm.com'
 
 # No Recaptha SITE_KEY and SECRET KEY
 # https://www.google.com/recaptcha
@@ -153,7 +150,7 @@ NORECAPTCHA_SITE_KEY = "key_key_key_key"
 NORECAPTCHA_SECRET_KEY = "key_key_key_key"
 
 SUIT_CONFIG = {
-    'ADMIN_NAME': 'Python Learning',
+    'ADMIN_NAME': 'admin',
     'SEARCH_URL': '/admin/blog/post/',
     'MENU': (
         {'app': 'blog', 'label': 'Blog', 'models': ('post', 'tag', 'page', 'author', 'gallery', 'visitor'),
@@ -167,10 +164,9 @@ SUIT_CONFIG = {
 }
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = '/path/to/yourenv/blogproject/media'
+MEDIA_ROOT = os.path.join(BASE_DIR, "media"),
 
 # Editor Redactor
-import time
 REDACTOR_OPTIONS = {'lang': 'en'}
 REDACTOR_UPLOAD = 'uploads/' + time.strftime("%Y/%m/%d/")
 REDACTOR_AUTH_DECORATOR = 'django.contrib.auth.decorators.login_required'
