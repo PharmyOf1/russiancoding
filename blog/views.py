@@ -132,6 +132,7 @@ class DetailPostView(generic.DetailView):
                 description=obj.description,
                 visitors=obj.total_visitors
             )
+
             return HttpResponse(
                 json.dumps(data),
                 content_type='application/json'

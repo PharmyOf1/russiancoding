@@ -16,7 +16,7 @@ class LatestPosts(Feed):
     description = "Latest Feed Blog Posts"
 
     def author_name(self):
-        return "Summon Agus"
+        return "Phil Harm"
 
     def items(self):
         return Post.objects.published()[:10]
