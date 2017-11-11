@@ -4,10 +4,13 @@
 {% block content %}
   {% block message_info_homepage %}{% endblock %}
 
-<!-- MAIN POST -->
-  {% for object in object_list|slice:"0:1" %}
-    <div class="post">
 
+
+<!-- MAIN POST -->
+  {% for object in object_list %}
+  {% if forloop.counter == 1 and page_obj.number == 1 %}
+
+    <div class="post">
       <h2><center><a href="{% url 'detail_post_page' slug=object.slug %}">{{ object.title }}</a></center></h2>
       <p class="meta" style="font-size:11px;color:#a9a9a9;">
         {{ object.created|date:"F d, Y" }} -
@@ -29,12 +32,8 @@
     </div>
       <div style="clear:both;border-bottom: 1px solid #F2F2F2;margin: 10px 0"></div>
     </div>
-  {% endfor %}
-
-<!-- All Other Posts -->
-  {% for object in object_list|slice:"1:" %}
-    <div class="row">
-
+    {% else %}
+    <div class="post">
       <div class="col-sm-4">
         {% if object.cover %}
           <div class="cst__cover__posts_small">
@@ -59,9 +58,13 @@
     </div>
     </div>
     <div style="clear:both;border-bottom: 1px solid #F2F2F2;margin: 10px 0"></div>
-
     </div>
+    {% endif %}
   {% endfor %}
+
+<!-- All Other Posts -->
+
+
 
   {% if is_paginated %}
     {% if request.GET.q %}

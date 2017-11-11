@@ -1,4 +1,6 @@
 info.py
+*.jpg
+
 
 ### OSX ###
 .DS_Store
