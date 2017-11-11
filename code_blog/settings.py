@@ -164,7 +164,7 @@ SUIT_CONFIG = {
 }
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, "media"),
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 # Editor Redactor
 REDACTOR_OPTIONS = {'lang': 'en'}

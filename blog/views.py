@@ -48,7 +48,7 @@ def handler500(request):
 class HomepageView(generic.ListView):
     queryset = Post.objects.published()
     template_name = 'blog/blog_home.html'
-    paginate_by = 10
+    paginate_by = 3
 
     def get_context_data(self, **kwargs):
         context_data = super(HomepageView, self).get_context_data(**kwargs)
@@ -57,6 +57,8 @@ class HomepageView(generic.ListView):
             self.paginate_by,
             self.request.GET.get('page')
         ).get_page_range()
+
+        print (context_data)
         return context_data
 
 

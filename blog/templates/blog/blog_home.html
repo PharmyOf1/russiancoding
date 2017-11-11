@@ -7,11 +7,19 @@
 <!-- MAIN POST -->
   {% for object in object_list|slice:"0:1" %}
     <div class="post">
-      <h2><center><a href="{% url 'detail_post_page' slug=object.slug %}">{{ object.title }}we</a></center></h2>
+
+      <h2><center><a href="{% url 'detail_post_page' slug=object.slug %}">{{ object.title }}</a></center></h2>
       <p class="meta" style="font-size:11px;color:#a9a9a9;">
         {{ object.created|date:"F d, Y" }} -
         <a href="{% url 'author_posts_page' username=object.author.user.username %}">Phil Harm</a>
       </p>
+      {% if object.cover %}
+        <div class="cst__cover__posts_main">
+          <a href="{% url 'detail_post_page' slug=object.slug %}">
+            <img style="width:100%" src="/media/{{ object.cover }}" alt="{{ object.title }}" title="{{ object.title }}">
+          </a>
+        </div>
+      {% endif %}
 
       {{ object.description|safe|striptags|truncatewords:"50"|linebreaks }}
        <div class="text-center">
@@ -27,9 +35,16 @@
   {% for object in object_list|slice:"1:" %}
     <div class="row">
 
-      <div class="col-sm-4"></div>
+      <div class="col-sm-4">
+        {% if object.cover %}
+          <div class="cst__cover__posts_small">
+            <a href="{% url 'detail_post_page' slug=object.slug %}">
+              <img style="width:100%" src="/media/{{ object.cover }}" alt="{{ object.title }}" title="{{ object.title }}">
+            </a>
+          </div>
+        {% endif %}</div>
       <div class="col-sm-8">
-      <h4><center><a href="{% url 'detail_post_page' slug=object.slug %}">{{ object.title }}</a></center></h4>
+      <h3><center><a href="{% url 'detail_post_page' slug=object.slug %}">{{ object.title }}</a></center></h3>
 
       <p class="meta" style="font-size:11px;color:#a9a9a9;">
         {{ object.created|date:"F d, Y" }} -
@@ -42,8 +57,9 @@
         <a href="{% url 'detail_post_page' slug=object.slug %}"><button type="button" class="btn btn-secondary btn-sm">Keep Reading</button></a>
       </span>
     </div>
-      <div style="clear:both;border-bottom: 1px solid #F2F2F2;margin: 10px 0"></div>
     </div>
+    <div style="clear:both;border-bottom: 1px solid #F2F2F2;margin: 10px 0"></div>
+
     </div>
   {% endfor %}
 

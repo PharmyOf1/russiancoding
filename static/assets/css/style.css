@@ -3,6 +3,17 @@ a {
     text-decoration: none;
 }
 
+.cst__cover__posts_main {
+  margin-bottom: 1em;
+  max-height: 300px;
+  overflow: hidden;
+}
+
+.cst__cover__posts_small {
+  margin-bottom: 1em;
+  max-height: 200px;
+  overflow: hidden;
+}
 
 .btn-sm, .btn-group-sm > .btn {
     text-transform: uppercase;
@@ -21,6 +32,17 @@ a:hover {
 h2 {
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 30px;
+    line-height: 1.2em;
+    text-transform: none;
+    text-decoration: none;
+    letter-spacing: 1px;
+    font-weight: 700;
+    font-style: normal;
+}
+
+h3 {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 20px;
     line-height: 1.2em;
     text-transform: none;
     text-decoration: none;
