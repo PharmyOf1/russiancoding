@@ -3,6 +3,8 @@ a {
     text-decoration: none;
 }
 
+
+
 .cst__cover__posts_main {
   margin-bottom: 1em;
   max-height: 300px;
@@ -24,6 +26,16 @@ a {
     font-size:10px;
     font-weight: bold;
   }
+
+.author-bio {
+  margin-bottom:30px;
+  margin-top:50px;
+}
+
+.author-bio img {
+  border-radius: 50%;
+
+}
 
 a:hover {
     text-decoration: none;

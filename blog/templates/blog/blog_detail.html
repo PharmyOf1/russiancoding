@@ -33,60 +33,45 @@
   <div class="post" id="printable">
     <h2><a href="{% url "detail_post_page" slug=object.slug %}">{{ object.title }}</a>{% if object.publish == False %} <i class="badge">DRAF</i>{% endif %}</h2>
     <div class="meta">
-      By: <a href="{% url 'author_posts_page' username=object.author.user.username %}" style="text-transform:uppercase">{{ object.author }}</a> &#9679;
-      at {{ object.created }} &#9679; and modified at {{ object.modified }}<br />
-      Posted under:
-      {% for tag in object.tags.all %}
-        <a href="{% url 'tag_posts_page' slug=tag.slug %}">#{{ tag }}</a>{% if not forloop.last %}, {% endif %}
-      {% empty %}Uncategories
-      {% endfor %}
-      <br />
-      Your ip address: {{ get_client_ip }} &#9679; views: {{ visitor_counter }} times.
+      <p class="meta" style="font-size:11px;color:#a9a9a9;">
+        {{ object.created|date:"F d, Y" }} -
+        <a href="{% url 'author_posts_page' username=object.author.user.username %}">Phil Harm</a>
+      </p>
     </div>
 
     <p>
     {% if object.cover %}
     <caption align="bottom">
       <img style="width:100%" class="cover-post" src="//{{ request.get_host }}/media/{{ object.cover }}" title="{{ object.title }}" alt="{{ object.title }}"/>
-    <span style="margin-left: 1px;background: #F2F4F3; padding: 0 5px; text-shadow: 1px 1px 1px #fff;">{{ object.title }}</span>
+    <!-- <span style="margin-left: 1px;background: #F2F4F3; padding: 0 5px; text-shadow: 1px 1px 1px #fff;">{{ object.title }}</span> -->
     </caption>
     {% endif %}
     </p>
     {{ object.description|safe }}
 
-    <div class="share panel-body" id="non-printable">
-      <span>Share on: </span>
-      <a class="btn btn-sm btn-primary cst__radius" href="https://www.facebook.com/sharer/sharer.php?u=https://python.web.id{% url "detail_post_page" slug=object.slug %}" target="_blank">Facebook</a>
-      <a class="btn btn-sm btn-danger cst__radius" href="https://plus.google.com/share?url=https://python.web.id{% url "detail_post_page" slug=object.slug %}" target="_blank">Google+</a>
-      <a class="btn btn-sm btn-info cst__radius" href="https://twitter.com/share" target="_blank">Twitter</a>
-      <a class="btn btn-sm btn-success cst__radius" href="javascript:window.print()">Print Page</a>
-    </div>
 
-    <style type="text/css" media="print">
-     @media print {
-       #non-printable, .ip-client { display: none; }
-       #printable { display: block; width: 100%;height: 100%;}
-       a[href]::after {content: "";} /*content: " (" attr(href) ")"*/
-     }
-    </style>
 
-    <div class="panel panel-default" id="non-printable">
-    <div class="panel-heading">Author</div>
-      <div class="panel-body">
+
+      <div class="author-bio">
         <div class="media">
           <div class="media-left media-middle" style="float: left;margin-right: 10px;">
             <a href="{% url 'author_posts_page' username=object.author.user.username %}">
-              <img class="media-object" alt="{{ object.author }}" title="{{ object.author }}" src="{% if object.author.avatar %}/media/{{ object.author.avatar }}{% else %}/static/assets/icons/avatar.jpeg{% endif %}" style="width: 64px; height: 64px;">
+              <img class="author-photo" alt="{{ object.author }}" title="{{ object.author }}" src="{% if object.author.avatar %}/media/{{ object.author.avatar }}{% else %}/static/assets/icons/avatar.jpeg{% endif %}" style="width: 100px; height: 100px;">
             </a>
           </div>
           <div class="media-body">
-            <h4 class="media-heading">{{ object.author }}</h4>
+            <h4 class="media-heading">Phil Harm</h4>
             {{ object.author.about|safe }}<br />
-              Website: <a href="{{ object.author.website }}" target="_blank">{{ object.author.website }}</a>
           </div>
         </div>
       </div>
-    </div>
+
+      <div class="share panel-body" id="non-printable">
+        <a class="btn btn-sm btn-primary cst__radius" href="https://website{% url "detail_post_page" slug=object.slug %}" target="_blank">Facebook</a>
+        <a class="btn btn-sm btn-danger cst__radius" href="https://website{% url "detail_post_page" slug=object.slug %}" target="_blank">Google+</a>
+        <a class="btn btn-sm btn-info cst__radius" href="https://twitter.com/share" target="_blank">Twitter</a>
+      </div>
+
 
     <div class="panel panel-default related" id="non-printable">
       <div class="panel-heading">
@@ -121,13 +106,5 @@
     <!-- disqus_dev -->
   </div>
 
-  <link rel="stylesheet" href="{% static 'assets/css/highlight.css' %}">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/highlight.min.js"></script>
-  <script type="text/javascript">
-    $(document).ready(function() {
-      $('pre').each(function(i, block) {
-        hljs.highlightBlock(block);
-      });
-    });
-  </script>
+
 {% endblock %}

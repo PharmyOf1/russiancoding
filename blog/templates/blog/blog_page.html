@@ -23,9 +23,10 @@
   <div class="post post__page" id="printable">
     <h2><a href="{% url "detail_page" slug=object.slug %}">{{ object.title }}</a></h2>
     <p class="meta">
-      Created: {{ object.created }} - Modified: {{ object.modified }} - 
+      Created: {{ object.created }} - Modified: {{ object.modified }} -
       By: <a href="{% url 'author_posts_page' username=object.author.user.username %}">{{ object.author }}</a>
     </p>
+    
     {{ object.description|safe }}
   </div>
 {% endblock %}
