@@ -19,7 +19,8 @@ register = template.Library()
 '''
 
 
-@register.assignment_tag
+# @register.assignment_tag
+@register.simple_tag
 def populartags():
     tags_queryset = Tag.objects.all()
     mapping = [
@@ -32,7 +33,8 @@ def populartags():
     return mapping[:10]
 
 
-@register.assignment_tag
+# @register.assignment_tag
+@register.simple_tag
 def recentposts():
     posts = Post.objects.published()
     return posts[:5]

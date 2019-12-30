@@ -1,5 +1,5 @@
 import os, time
-from . import info
+# from . import info
 from django.core.exceptions import ImproperlyConfigured
 
 
@@ -19,7 +19,7 @@ def get_env_variable(var_name):
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = info.SECRET_KEY
+SECRET_KEY = 'test'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -42,8 +42,8 @@ INSTALLED_APPS = [
 
     #'disqus',
     'redactor',
-    'nocaptcha_recaptcha',
-    'import_export',
+    # 'nocaptcha_recaptcha',
+    # 'import_export',
 ]
 
 MIDDLEWARE = [
@@ -85,7 +85,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'codeblogpharm',
         'USER': 'pharm27',
-        'PASSWORD': get_env_variable('db_pass'),
+        'PASSWORD': get_env_variable('passwd2'),
         'HOST': 'data.philharm.com',   # Or an IP Address that your DB is hosted on
         'PORT': '3306',
     }

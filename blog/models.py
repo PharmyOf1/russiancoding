@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 
 from redactor.fields import RedactorField
 
@@ -15,7 +15,7 @@ class TimeStampedModel(models.Model):
 
 
 class Author(models.Model):
-    user = models.ForeignKey(User, related_name='author')
+    user = models.ForeignKey(User, related_name='author',on_delete=models.PROTECT)
     avatar = models.ImageField(upload_to='gallery/avatar/%Y/%m/%d',
                                null=True,
                                blank=True,
@@ -58,7 +58,7 @@ class PostQuerySet(models.QuerySet):
 
 
 class Post(TimeStampedModel):
-    author = models.ForeignKey(Author, related_name='author_post')
+    author = models.ForeignKey(Author, related_name='author_post',on_delete=models.PROTECT)
     title = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200, unique=True)
     cover = models.ImageField(upload_to='gallery/covers/%Y/%m/%d',
@@ -91,7 +91,7 @@ class Post(TimeStampedModel):
 
 
 class Page(TimeStampedModel):
-    author = models.ForeignKey(Author, related_name='author_page')
+    author = models.ForeignKey(Author, related_name='author_page',on_delete=models.PROTECT)
     title = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200, unique=True)
     description = RedactorField()
@@ -132,7 +132,7 @@ class Gallery(TimeStampedModel):
 
 
 class Visitor(TimeStampedModel):
-    post = models.ForeignKey(Post, related_name='post_visitor')
+    post = models.ForeignKey(Post, related_name='post_visitor',on_delete=models.PROTECT)
     ip = models.CharField(max_length=40)
 
     def __str__(self):
