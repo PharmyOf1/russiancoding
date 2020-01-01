@@ -1,6 +1,6 @@
-/* body {
+body {
     font-family: "Roboto", sans-serif;
-    font-size: 17px;
+    font-size: 14px;
     background-color: #fdfdfd;
 }
 .shadow {
@@ -17,4 +17,27 @@
     padding-bottom: 15px;
     box-shadow: 0 16px 48px #E3E7EB;
     padding-top: 10px;
-} */
+}
+
+/* Custom Table */
+table {
+    color: #333;
+    border-collapse:
+    collapse; border-spacing: 0;
+    white-space: nowrap;
+    width: auto !important;
+}
+
+td, th {
+    border: 1px solid transparent; /* No more visible border */
+    height: 30px;
+    white-space: nowrap;
+}
+
+th, td {
+    background: #FAFAFA;
+    text-align: center;
+    white-space: nowrap;
+    width: 100px;
+    overflow: hidden;
+}

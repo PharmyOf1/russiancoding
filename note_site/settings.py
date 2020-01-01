@@ -12,6 +12,18 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
+def get_env_variable(var_name):
+    try:
+        command = os.popen('cat $BUILD_SECRETS_PATH/{}'.format(var_name))
+        var = command.read()
+        command.close()
+        if var in (None,""):
+            return os.environ.get("{}".format(var_name))
+        return var
+    except KeyError:
+        error_msg = "Set the %s environment variable" % var_name
+        raise ImproperlyConfigured(error_msg)
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATES_DIR = os.path.join(BASE_DIR,'templates')
@@ -87,8 +99,12 @@ WSGI_APPLICATION = 'note_site.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'russiancoding',
+        'USER': 'pharm27',
+        'PASSWORD': get_env_variable('passwd2'),
+        'HOST': 'data.philharm.com',   # Or an IP Address that your DB is hosted on
+        'PORT': '3306',
     }
 }
 
