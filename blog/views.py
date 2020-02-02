@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from .models import Post
 from datetime import datetime
 
-posts_per_page = 10
+posts_per_page = 5
 
 def index(request):
     CY = datetime.today().year

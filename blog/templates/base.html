@@ -25,33 +25,40 @@
 
     <body>
       <div class="container">
+
+      <!-- Nav Bar  -->
         <nav class="navbar navbar-expand-lg navbar-light color-scheme">
+
           <a class="navbar-brand color-scheme" href="#" class="navbar-left"><img class='navbar-image' src="{% static "img/logo.png" %}"> Russian & Coding</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
 
           <div class="collapse navbar-collapse color-scheme" id="navbarTogglerDemo02">
-    <ul class="nav navbar-nav ml-auto color-scheme">
-      <li class="nav-item color-scheme">
-          <a class="nav-link font-weight-bold color-scheme" href="{% url 'about' %}">About</a>
-      </li>
-      <li class="nav-item ">
-          <a class="nav-link font-weight-bold color-scheme" href="{% url 'russian' %}">Russian</a>
-      </li>
-      <li class="nav-item ">
-          <a class="nav-link font-weight-bold color-scheme" href="{% url 'coding' %}">Coding</a>
-      </li>
-    </ul>
-  </nav>
+              <ul class="nav navbar-nav ml-auto color-scheme">
+                  <li class="nav-item color-scheme">
+                      <a class="nav-link font-weight-bold color-scheme" href="{% url 'about' %}">About</a>
+                    </li>
+                  <li class="nav-item ">
+                      <a class="nav-link font-weight-bold color-scheme" href="{% url 'russian' %}">Russian</a>
+                    </li>
+                  <li class="nav-item ">
+                      <a class="nav-link font-weight-bold color-scheme" href="{% url 'coding' %}">Coding</a>
+                    </li>
+              </ul>
+         </div>
+
+          </nav>
 
 
+      <!-- Blue Bar  -->
+      <div class="overlay masthead"></div>
 
 
         {% block content %}
+        <!-- Main Page Block -->
         <header class="masthead">
             <div class="overlay"></div>
-            <div class="container">
                 <div class="row">
                     <div class=" col-md-8 col-md-10 mx-auto">
                         <div class="site-heading">
@@ -59,10 +66,13 @@
                         </div>
                     </div>
                 </div>
-            </div>
         </header>
 
         {% endblock content %}
+
+        <!-- Blue Bar  -->
+          <div class="overlay masthead"></div>
+
         <!-- Footer -->
             <footer class="footer-bs color-scheme">
                 <div class="row">
@@ -99,7 +109,6 @@
                 </div>
             </footer>
 
-      </div>
-
+          </div> <!-- container -->
     </body>
 </html>
