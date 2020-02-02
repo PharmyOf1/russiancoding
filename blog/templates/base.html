@@ -10,6 +10,7 @@
         <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"  crossorigin="anonymous"></script>
 
         <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <meta name="google" content="notranslate" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -22,9 +23,10 @@
     </head>
 
     <body>
+      <div class="container">
 
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Russian & Coding by Phil Harm</a>
+      <nav class="navbar navbar-expand-lg navbar-light color-scheme">
+        <a class="navbar-brand color-scheme" href="#">Russian & Coding by Phil Harm</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -64,9 +66,42 @@
 
         {% endblock content %}
         <!-- Footer -->
-        <footer class="py-3 bg-grey">
-            <p class="m-0 text-dark text-center ">@2019 - {{CY}} Russian & Coding  </p>
-        </footer>
+            <footer class="footer-bs color-scheme">
+                <div class="row">
+                	<div class="col-md-3 footer-brand animated fadeInLeft">
+                    	<h2>Russian and Coding</h2>
+                        <p>Documenting my progress learning Russian Language and Computer Programming</p>
+                        <p>© {{CY}} Russian & Coding All rights reserved</p>
+                    </div>
+                	<div class="col-md-4 footer-nav animated fadeInUp">
+
+                  Donate
+                    </div>
+                	<div class="col-md-2 footer-social animated fadeInDown">
+                    	<h4>Follow Us</h4>
+                    	<ul>
+                        	<li><a href="#">Facebook</a></li>
+                        	<li><a href="#">Twitter</a></li>
+                        	<li><a href="#">Instagram</a></li>
+                        	<li><a href="#">RSS</a></li>
+                        </ul>
+                    </div>
+                	<div class="col-md-3 footer-ns animated fadeInRight">
+                    	<h4>Search Archive</h4>
+                        <p>A rover wearing a fuzzy suit doesn’t alarm the real penguins</p>
+                        <p>
+                            <div class="input-group">
+                              <input type="text" class="form-control" placeholder="Search for...">
+                              <span class="input-group-btn">
+                                <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-envelope"></span></button>
+                              </span>
+                            </div><!-- /input-group -->
+                         </p>
+                    </div>
+                </div>
+            </footer>
+
+      </div>
 
     </body>
 </html>
