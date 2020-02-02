@@ -11,6 +11,7 @@
 
         <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="shortcut icon" href="{% static "img/favicon.ico" %}" type="image/x-icon" />
         <meta name="google" content="notranslate" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -24,28 +25,25 @@
 
     <body>
       <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light color-scheme">
+          <a class="navbar-brand color-scheme" href="#" class="navbar-left"><img class='navbar-image' src="{% static "img/logo.png" %}"> Russian & Coding</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-      <nav class="navbar navbar-expand-lg navbar-light color-scheme">
-        <a class="navbar-brand color-scheme" href="#">Russian & Coding by Phil Harm</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item text-black">
-                <a class="nav-link text-black font-weight-bold" href="{% url 'about' %}">About</a>
-            </li>
-            <li class="nav-item text-black">
-                <a class="nav-link text-black font-weight-bold" href="{% url 'russian' %}">Russian</a>
-            </li>
-            <li class="nav-item text-black">
-                <a class="nav-link text-black font-weight-bold" href="{% url 'coding' %}">Coding</a>
-            </li>
-          </ul>
-
-        </div>
-      </nav>
+          <div class="collapse navbar-collapse color-scheme" id="navbarTogglerDemo02">
+    <ul class="nav navbar-nav ml-auto color-scheme">
+      <li class="nav-item color-scheme">
+          <a class="nav-link font-weight-bold color-scheme" href="{% url 'about' %}">About</a>
+      </li>
+      <li class="nav-item ">
+          <a class="nav-link font-weight-bold color-scheme" href="{% url 'russian' %}">Russian</a>
+      </li>
+      <li class="nav-item ">
+          <a class="nav-link font-weight-bold color-scheme" href="{% url 'coding' %}">Coding</a>
+      </li>
+    </ul>
+  </nav>
 
 
 
@@ -69,7 +67,7 @@
             <footer class="footer-bs color-scheme">
                 <div class="row">
                 	<div class="col-md-3 footer-brand animated fadeInLeft">
-                    	<h2>Russian and Coding</h2>
+                    	<img class='navbar-image' src="{% static "img/logo.png" %}">
                         <p>Documenting my progress learning Russian Language and Computer Programming</p>
                         <p>© {{CY}} Russian & Coding All rights reserved</p>
                     </div>

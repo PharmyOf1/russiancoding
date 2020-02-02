@@ -65,6 +65,12 @@ a.color-scheme:visited { color: #FFF; text-decoration:none; font-weight:normal; 
 a.color-scheme:hover { color: #FFF; text-decoration:underline; font-weight:normal; }
 a.color-scheme:active { color: #FFF; text-decoration:none; font-weight:normal; }
 
+.navbar-image {
+  max-height: 2.5rem;
+  height: auto;
+  max-width: 100%;
+}
+
 .footer-bs {
 	padding: 60px 40px;
 	margin-bottom: 20px;
