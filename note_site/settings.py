@@ -34,7 +34,7 @@ X_FRAME_OPTIONS = 'SAMEORIGIN'
 SECRET_KEY = get_env_variable('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['russianandcoding.philharm.com','www.russianandcoding.philharm.com','localhost','127.0.0.1']
 
