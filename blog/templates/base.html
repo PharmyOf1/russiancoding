@@ -16,8 +16,10 @@
 
 
         <!-- Bootstrap and Custom Overide -->
+        <link rel="stylesheet" href="{% static 'css/fa.css' %}">
         <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
         <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
 
 
     </head>
@@ -67,6 +69,29 @@
                 </div>
         </header>
 
+        <div class="row">
+                <div class="col-md-6 icon-blocks">
+                  <span class="fa-stack fa-5x">
+                    <a href="{% url 'russian' %}"><i class="fa fa-circle-thin fa-stack-2x"></i>
+                    <i class="fa fa-comment fa-stack-1x"></i></a>
+                  </span>
+                  <h4 class="service-heading">Russian Language Notes</h4>
+                  <p class="text-muted">Native English speaker with no Russian ties. Decided in July '19 to learn Russian. These notes document my progress and journey to fluency.</p>
+                  <p class="text-muted"> Notes: {{r_notes}} </p>
+                </div>
+                <div class="col-md-6 icon-blocks">
+                  <span class="fa-stack fa-5x">
+                      <a href="{% url 'coding' %}"><i class="fa fa-circle-thin fa-stack-2x"></i>
+                      <i class="fa fa-code fa-stack-1x"></i></a>
+                    </span>
+
+                  <h4 class="service-heading">Coding Notes</h4>
+                  <p class="text-muted">A love of coding and programming with no computer science background. These notes document my continued learning of computer programming and networking.</p>
+                  <p class="text-muted"> Notes: {{c_notes}} </p>
+                </div>
+            </div>
+
+
         {% endblock content %}
 
         <!-- Blue Bar  -->
@@ -78,7 +103,7 @@
                 	<div class="col-md-3 footer-brand animated fadeInLeft">
                     	<img class='navbar-image' src="{% static "img/logo.png" %}">
                         <p>Documenting my progress learning Russian Language and Computer Programming</p>
-                        <p>© {CY} Russian & Coding All rights reserved</p>
+                        <p>© 2019 - {{CY}} Russian & Coding <br>All rights reserved</br></p>
                     </div>
                 	<div class="col-md-4 footer-nav animated fadeInUp">
 

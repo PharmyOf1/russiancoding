@@ -15,8 +15,9 @@ body {
     background: #3398E1;
     height: auto;
     padding-bottom: 15px;
-    /* box-shadow: 0 16px 48px #E3E7EB; */
     padding-top: 10px;
+    padding-left:15px;
+    padding-right:15px;
 }
 
 /* Custom Table */
@@ -41,6 +42,15 @@ th, td {
     width: 100px;
     overflow: hidden;
 }
+
+.fa {
+	color: #3398E1;
+}
+.icon-blocks {
+  text-align: center;
+  padding: 25px;
+}
+
 
 .post-title{
       font-size: 36px;

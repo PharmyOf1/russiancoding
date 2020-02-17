@@ -8,7 +8,10 @@ posts_per_page = 5
 
 def index(request):
     CY = datetime.today().year
-    return render(request, 'base.html', {'CY': CY})
+    all_notes = Post.objects.all()
+    r_notes = all_notes.filter(category=0).count()
+    c_notes =  all_notes.count()-r_notes
+    return render(request, 'base.html', {'CY': CY, 'r_notes': r_notes,'c_notes':c_notes})
 
 def about(request):
     return render(request, 'base.html', {})
