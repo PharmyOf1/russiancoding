@@ -25,22 +25,24 @@ table {
     color: #333;
     border-collapse:
     collapse; border-spacing: 0;
-    white-space: nowrap;
-    width: auto !important;
+    /* white-space: nowrap; */
+    /* width: auto !important; */
+    max-width: 700px;
 }
 
 td, th {
     border: 1px solid transparent; /* No more visible border */
     height: 30px;
-    white-space: nowrap;
+    /* white-space: nowrap; */
+    /* word-break:break-all;. */
 }
 
 th, td {
     background: #FAFAFA;
     text-align: center;
-    white-space: nowrap;
+    /* white-space: nowrap; */
     width: 100px;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .fa {
