@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class='container'>
+  <div class="col-md-12 mt-3"
+    <div class="card mb-4 border-0">
+    <div class="card-body border-top">
+
+      <div class="row">
+          <h2 class="post-title">All Vocab</h2>
+      </div>
+      <div class="row">
+          <p class="post-meta">Hover for Quick Practice - Randomized </p>
+      </div>
+
+      <p>
+
+      <!-- <div class="row">
+        Random Word
+      </div> -->
+
+      <div class="row">
+        <table class="table table-bordered">
+          <tbody>
+            <tr><th>#</th><th>Russian</th><th>English</th></tr>
+
+              {% for x in words %}
+              <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ x.russian}}</td>
+                <td class="customTD">{{ x.english }}</td>
+              </tr>
+              {% endfor %}
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+{%endblock%}

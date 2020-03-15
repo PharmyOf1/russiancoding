@@ -1,8 +1,9 @@
 from django.views import generic
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Post
+from .models import Post, Vocab
 from datetime import datetime
+
 
 posts_per_page = 5
 
@@ -15,6 +16,10 @@ def index(request):
 
 def about(request):
     return render(request, 'base.html', {})
+
+def vocab(request):
+    words = Vocab.objects.all().order_by('?')
+    return render(request, 'vocab.html', {'words':words})
 
 class PostListRussian(generic.ListView):
     queryset = Post.objects.filter(status=1,category=0).order_by('-created_on')

@@ -33,3 +33,10 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+class Vocab(models.Model):
+    russian = models.CharField(max_length=200, unique=True)
+    english = models.CharField(max_length=200, unique=False)
+
+    class Meta:
+        ordering = ['russian']

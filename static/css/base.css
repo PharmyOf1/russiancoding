@@ -45,6 +45,18 @@ th, td {
     /* overflow: hidden; */
 }
 
+.customTD
+{
+   color:#FAFAFA
+}
+.customTD:hover
+{
+  background: #FAFAFA;
+  color:#000000;
+  text-align: center;
+  width: 100px;
+}
+
 .fa {
 	color: #3398E1;
 }
