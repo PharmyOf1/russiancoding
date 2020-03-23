@@ -18,7 +18,8 @@ def about(request):
     return render(request, 'base.html', {})
 
 def vocab(request):
-    words = Vocab.objects.all().order_by('?')
+    # words = Vocab.objects.all().order_by('?')
+    words = Vocab.objects.values('russian','english').order_by('?')
     return render(request, 'vocab.html', {'words':words})
 
 class PostListRussian(generic.ListView):
