@@ -9,8 +9,9 @@ if sys.executable != INTERP: os.execl(INTERP, INTERP, *sys.argv)
 
 sys.path.insert(0,'$HOME/venv/russian/bin')
 sys.path.insert(0,'$HOME/venv/russian/lib/python3.8/site-packages/django')
-sys.path.insert(0,'$HOME/venv/russian//lib/python3.8/site-packages')
+sys.path.insert(0,'$HOME/venv/russian/lib/python3.8/site-packages')
 
 os.environ['DJANGO_SETTINGS_MODULE'] = "note_site.settings"
 from django.core.wsgi import get_wsgi_application
 application = get_wsgi_application()
+
